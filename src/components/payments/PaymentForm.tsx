@@ -27,7 +27,7 @@ import {
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
-import { QRCode as QRCodeComponent } from "qrcode.react";
+import QRCode from "qrcode.react";
 import { Progress } from "@/components/ui/progress";
 import { Confetti } from "../ui/confetti";
 
@@ -230,7 +230,7 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
             ) : (
               <>
                 <div className="bg-muted/50 p-6 rounded-lg">
-                  <QRCodeComponent
+                  <QRCode
                     value={generatePaymentQRData(
                       form.getValues("amount"),
                       job.labourer?.name || "Worker",
