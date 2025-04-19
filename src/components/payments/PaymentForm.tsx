@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,7 +27,7 @@ import {
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
-import { QRCode } from "qrcode.react";
+import { QRCode as QRCodeComponent } from "qrcode.react";
 import { Progress } from "@/components/ui/progress";
 import { Confetti } from "../ui/confetti";
 
@@ -231,7 +230,7 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
             ) : (
               <>
                 <div className="bg-muted/50 p-6 rounded-lg">
-                  <QRCode
+                  <QRCodeComponent
                     value={generatePaymentQRData(
                       form.getValues("amount"),
                       job.labourer?.name || "Worker",
