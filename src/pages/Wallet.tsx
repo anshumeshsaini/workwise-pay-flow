@@ -12,8 +12,8 @@ import { getUserPayments } from "@/lib/mock-data";
 import { Payment } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
-import { useToast } from "@/components/ui/toast";
-import QRCode from "qrcode.react";
+import { useToast } from "@/components/ui/use-toast";
+import { QRCode } from "qrcode.react";
 import {
   Dialog,
   DialogContent,

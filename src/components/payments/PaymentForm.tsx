@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 import { CheckCircle2Icon, Loader2, QrCodeIcon } from "lucide-react";
 import { cn, formatCurrency, generatePaymentQRData, generateTransactionId, sleep } from "@/lib/utils";
 import { createPayment, updatePaymentStatus } from "@/lib/mock-data";
@@ -28,7 +28,7 @@ import {
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
-import QRCode from "qrcode.react";
+import { QRCode } from "qrcode.react";
 import { Progress } from "@/components/ui/progress";
 import { Confetti } from "../ui/confetti";
 

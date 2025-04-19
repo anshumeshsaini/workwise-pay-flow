@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { useAuth } from "@/hooks/useAuth";
@@ -44,7 +43,7 @@ import { JobForm } from "@/components/jobs/JobForm";
 import { PaymentForm } from "@/components/payments/PaymentForm";
 import { formatCurrency, formatDate, formatDateTime, getInitials } from "@/lib/utils";
 import { updateJobStatus } from "@/lib/mock-data";
-import { useToast } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 
 const Jobs = () => {
   const { user } = useAuth();
