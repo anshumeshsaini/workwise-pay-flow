@@ -12,7 +12,7 @@ import { Payment } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/components/ui/use-toast";
-import QRCode from "qrcode.react";
+import { QRCodeSVG } from "qrcode.react";
 import {
   Dialog,
   DialogContent,
@@ -288,7 +288,6 @@ const Wallet = () => {
         </Tabs>
       </div>
       
-      {/* QR Code Dialog */}
       <Dialog open={showQRDialog} onOpenChange={setShowQRDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
@@ -305,7 +304,7 @@ const Wallet = () => {
           
           <div className="flex flex-col items-center justify-center space-y-6 py-4">
             <div className="bg-white p-6 rounded-lg">
-              <QRCode
+              <QRCodeSVG
                 value={JSON.stringify({
                   type: ad1dingFunds ? "add-funds" : "request",
                   amount: parseFloat(amount) || 0,
@@ -314,7 +313,6 @@ const Wallet = () => {
                 })}
                 size={180}
                 level="H"
-                renderAs="svg"
               />
             </div>
             

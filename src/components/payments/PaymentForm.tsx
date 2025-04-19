@@ -27,7 +27,7 @@ import {
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
-import QRCode from "qrcode.react";
+import { QRCodeSVG } from "qrcode.react";
 import { Progress } from "@/components/ui/progress";
 import { Confetti } from "../ui/confetti";
 
@@ -78,7 +78,6 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
     
     setIsSubmitting(true);
     try {
-      // Create payment record
       const payment = await createPayment({
         job_id: job.id,
         employer_id: user.id,
@@ -89,7 +88,6 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
       setPaymentId(payment.id);
       setShowQRDialog(true);
       
-      // Simulate payment processing
       await simulatePaymentProcess(payment.id);
       
       if (onSuccess) onSuccess();
@@ -230,7 +228,7 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
             ) : (
               <>
                 <div className="bg-muted/50 p-6 rounded-lg">
-                  <QRCode
+                  <QRCodeSVG
                     value={generatePaymentQRData(
                       form.getValues("amount"),
                       job.labourer?.name || "Worker",
@@ -238,7 +236,6 @@ export function PaymentForm({ job, onSuccess, initialAmount }: PaymentFormProps)
                     )}
                     size={180}
                     level="H"
-                    renderAs="svg"
                     imageSettings={{
                       src: "/logo.png",
                       height: 30,
